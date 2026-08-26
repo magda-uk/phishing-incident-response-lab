@@ -1,4 +1,4 @@
-# Real Phishing Case — Spoofing + Fake Invoice + Malicious Link
+# Real Phishing Case : **_Spoofing + Fake Invoice + Malicious Link_**
 
 ## 🧩 Overview
 This case is based on a real phishing email I personally received.  
@@ -20,7 +20,12 @@ The email combines:
 - **Recipients:** multiple unrelated victims  
 - **Attachment:** PDF (“Invoice Actualiza…”)  
 - **Link:** https://limes-plus.com/
+### 📸 Email Overview
+![Email overview](./images/email-overview.png)
 
+### 📸 Header Details
+
+![Header details](./images/email-header.png)
 ---
 
 ## 🕵️ Header Findings
