@@ -1,6 +1,8 @@
 # Suspicious Invoice SantanderEquipo / inFakt.pl Phishing Campaign
 
 ## 📌 Overview
+> **Investigative Context:** This analysis is not based on a fabricated lab dataset. It is a real, in-the-wild phishing attempt that I personally intercepted and triaged using safe isolation methodologies.
+
 This folder contains the artefact attached to a real phishing email I received.  
 The attacker impersonated “SantanderEquipo, Inc.” and used the Polish invoicing platform inFakt.pl to generate a fake invoice PDF.
 

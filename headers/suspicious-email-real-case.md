@@ -91,3 +91,11 @@ The attacker attempts to:
 ## 📝 Conclusion
 This is a clear phishing attempt combining spoofing, fake invoicing, and credential harvesting.  
 Header analysis, link inspection, and attachment behaviour are sufficient to classify the email as malicious.
+
+---
+## 🔺 Author
+Magda Dominguez
+
+SOC Analyst (L1-ready) Bristol, UK
+
+Focused on Blue Team operations, detection engineering and log analysis.

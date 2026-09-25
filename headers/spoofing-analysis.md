@@ -1,4 +1,5 @@
-# Email Header Analysis — Spoofing Attempt
+# Email Header Analysis 
+ # Spoofing Attempt
 
 ## 🧩 Overview
 This case demonstrates how to identify a spoofed email using header analysis.  
@@ -70,4 +71,11 @@ The email attempts to impersonate Microsoft to deliver a credential-harvesting l
 This is a clear spoofing attempt designed to steal credentials.  
 Header analysis alone is sufficient to classify the email as malicious.
 
+---
 
+## 🔺 Author
+Magda Dominguez
+
+SOC Analyst (L1-ready) Bristol, UK
+
+Focused on Blue Team operations, detection engineering and log analysis.

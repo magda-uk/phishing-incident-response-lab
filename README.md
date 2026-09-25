@@ -1,126 +1,81 @@
-# 🛡️ Phishing Incident Response Lab (Email Triage & Artefacts)
+# 🔰 Phishing Incident Response Lab (Email Triage & Artefacts)
 
-This repository contains my dedicated laboratory for analysing phishing emails, malicious artefacts, and end‑to‑end incident response workflows.  
-It complements my SOC Analyst Portfolio by showcasing specialised Blue Team skills focused on email security, artefact triage, and investigative methodology.
+This repository serves as a dedicated laboratory for analysing phishing campaigns, malicious artefacts, and end‑to‑end incident response workflows. It is designed to demonstrate practical, real‑world Blue Team skills focused on email security, threat actor infrastructure analysis, and safe triage methodologies.
 
----
-
-## 🎯 Purpose
-
-To demonstrate practical, real‑world skills in:
-
-- Email header analysis (SPF, DKIM, DMARC alignment, routing hops)
-- Malicious artefact triage (PDF, HTML, EML)
-- URL and attachment analysis
-- Sandbox investigation (ANY.RUN, VirusTotal, Hybrid Analysis)
-- IoC extraction and reporting
-- Python automation for email triage and artefact parsing
-
-Phishing remains one of the most common initial access vectors, making these skills essential within modern SOC environments.
+Phishing remains a primary initial access vector. This lab moves beyond theory, applying strict SOC evidence-handling procedures to investigate live, real-world malicious emails.
 
 ---
 
-## 🔵 Blue Team Focus
+## 🟨 Featured Investigations
 
-This project forms part of my ongoing development within the **Blue Team (BLT)**, where my primary focus includes:
+The core of this repository consists of detailed, step-by-step analyses of captured phishing attempts. 
 
-- Detection engineering  
-- Investigation and incident response  
-- Artefact triage  
-- Email security and phishing analysis  
-- Evidence handling and documentation  
+* 📄 **[Artefact Triage: Suspicious Santander / inFakt Invoice](./artifacts/suspicious-invoice-santander/pdf-analysis.md)**
 
-Although BLT is my main area of interest, I also explore complementary fields such as:
+  Safe static analysis of a malicious PDF masquerading as a financial document. Includes fraud indicator mapping, social engineering breakdown, and expected sandbox detonation behaviour.
+* 📧 **[Campaign Breakdown: Real Phishing Case (Santander/inFakt)](./headers/suspicious-email-real-case.md)**
 
-- Threat hunting  
-- Malicious artefact analysis  
-- Detection logic and rule creation  
-- Technical documentation of incidents  
+  Full investigation of the email body, extracting malicious routing hops, external domain IoCs (`limes-plus.com`), and identifying the mass-targeting footprint.
+* 🕵️ **[Email Header Analysis: Microsoft Support Spoofing](./headers/spoofing-analysis.md)**
 
-This repository reflects that blend:  
-**real phishing cases** documented using BLT methodology, including email header analysis, artefact triage, and safe static examination of suspicious PDFs.
+  Deep-dive into a credential harvesting campaign. Demonstrates the identification of forged senders via SPF, DKIM, and DMARC alignment failures, alongside return-path mismatches.
 
 ---
 
-## 📁 Repository Structure
-```
+## 🟨 Tools & Investigative Methodology
+
+These investigations utilise standard SOC analyst toolsets to extract Indicators of Compromise (IoCs) and validate threat intelligence:
+
+* **Email Header Inspection:** Outlook / Thunderbird raw header extraction.
+* **DNS & Routing Validation:** MxToolbox (SPF, DKIM, DMARC, IP reputation).
+* **Artefact Detonation & Sandbox:** ANY.RUN, Hybrid Analysis, Joe Sandbox.
+* **File & URL Reputation:** VirusTotal.
+* **Deobfuscation:** CyberChef.
+
+---
+
+## 🟨 Security & Evidence Handling
+
+To maintain a secure laboratory environment, all investigations adhere to strict incident response protocols:
+* All artefacts are handled exclusively within isolated environments or via **GitHub’s safe static preview**.
+* No local execution of attachments or scripts.
+* Evidence is preserved in structured, quarantined directories.
+
+---
+
+## 🟨 Repository Structure
+
+```text
 phishing-incident-response-lab/
 │
-├── headers/
+├── headers/                      # Email routing and spoofing investigations
 │   ├── suspicious-email-real-case.md
 │   ├── spoofing-analysis.md
-│   ├── README.md
 │   └── images/
-│       ├── email-overview.png
-│       └── email-header.png
 │
-├── artifacts/
+├── artifacts/                    # Safe static analysis of malicious files
 │   └── suspicious-invoice-santander/
 │       ├── Invoice Actualizacion de seguridad de cuenta.pdf
 │       ├── pdf-analysis.md
-│       ├── README.md
 │       └── images/
-│           └── pdf-preview-github.png
 │
-├── automation/   (planned)
+├── automation/                   # (In Development) Python triage tools
 │   ├── eml-parser.py
-│   ├── ioc-extractor.py
-│   ├── spf-dkim-validator.py
+│   └── ioc-extractor.py
 │
-├── case-studies/ (planned)
-│   ├── credential-harvesting.md
-│   ├── invoice-themed-phishing.md
-│   ├── bec-attempt.md
+└── case-studies/                 # (In Development) Campaign mapping
+    ├── credential-harvesting.md
+    └── mfa-fatigue-scenarios.md
 ```
-
 ---
-## 🧰 Tools Used (current and planned)
+## ♻️ Active Development Roadmap
+This laboratory is continuously updated with new artefacts and automated triage capabilities. 
 
-These tools form part of the laboratory’s workflow for email triage, artefact analysis and phishing investigation:
+Current priorities include:
 
-- MxToolbox (SPF, DKIM, DMARC, DNS lookups)
-- ANY.RUN (dynamic sandbox detonation)
-- VirusTotal (file and URL reputation)
-- Hybrid Analysis (static and dynamic artefact analysis)
-- CyberChef (decoding, deobfuscation, data extraction)
-- Python (automation scripts for EML parsing and IoC extraction)
-- Outlook / Thunderbird (email header inspection)
+* Integrating Sigma rules to detect malicious email forwarding and inbox rules.
 
+* Developing Python automation scripts to parse raw .eml files and auto-extract IoCs.
 
+* Expanding cases to cover QR code phishing (Quishing) and Business Email Compromise (BEC) attempts.
 ---
-
-## 🔒 Security Approach
-
-- All artefacts opened **only via GitHub’s safe preview**  
-- No local execution of attachments  
-- Analysis follows SOC triage methodology  
-- Evidence stored in structured folders  
-- Markdown documentation for reproducibility  
-
----
-## 📌 Progress So Far
-This laboratory is currently in its early stages.
-So far, I have completed:
-
-✔  A full analysis of a real phishing email I received
-
-✔  Documentation of spoofing indicators
-
-✔  Email header investigation (routing hops, sender metadata, domain inspection)
-
-✔  Safe triage of the attached PDF artefact
-
-✔  Structured documentation following SOC methodology
-
-✔ A clean and professional folder structure for future cases
-
----
-## 📈 Planned Work
-
-- Add HTML and EML artefact triage cases  
-- Add a “Case Index” section  
-- Expand with further phishing scenarios (QR phishing, credential harvesting, MFA fatigue)  
-- Add Sigma rules for detection  
-- Add YARA rules for artefact triage  
-- Add Python automation scripts for EML parsing and IoC extraction  
-- Add sandbox detonation reports for dynamic analysis  
