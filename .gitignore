@@ -2,3 +2,6 @@
 *.eml
 *.pdf
 raw_emails/
+# Python bytecode
+__pycache__/
+*.pyc
