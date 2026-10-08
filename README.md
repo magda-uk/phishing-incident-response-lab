@@ -4,7 +4,7 @@ This repository serves as a dedicated laboratory for analysing phishing campaign
 
 Phishing remains a primary initial access vector, but it is often just the first step in a broader attack chain (incorporating Spoofing, Credential Harvesting, and MFA Fatigue). This lab moves beyond theory, applying strict SOC evidence-handling procedures to investigate live, real-world malicious emails.
 
----
+
 
 ## 🟨 Featured Incident Reports
 
@@ -19,7 +19,7 @@ The core of this repository consists of detailed, step-by-step incident reports 
 - 🕵️ **[Case: Microsoft Support Spoofing](./cases/microsoft-support-spoofing/incident-report.md)**
   Deep-dive into a credential harvesting lure. Demonstrates the identification of forged senders via SPF, DKIM, and DMARC alignment failures, alongside return-path mismatches and IP reputation analysis.
 
----
+
 
 ## 🐍 Python Automation Engine (Bulk Triage)
 
@@ -29,7 +29,7 @@ To streamline the initial analysis phase and eliminate repetitive tasks, this la
 - **`ioc_extractor.py`**: Utilizes advanced Regular Expressions (RegEx) to automatically scan text contents and harvest Indicators of Compromise (IoCs), including IPv4 addresses, URLs/domains, and email addresses.
 - **`triage.py`**: The orchestration script. It loops through the `raw_emails/` queue, runs the parser and extractor sequentially, and generates a structured master investigation report (`artifacts/triage_report.json`).
 
----
+
 ## 🟨 Tools & Investigative Methodology
 
 These investigations utilise standard SOC analyst toolsets to extract Indicators of Compromise (IoCs) and validate threat intelligence:
@@ -39,7 +39,7 @@ These investigations utilise standard SOC analyst toolsets to extract Indicators
 - **File & URL Reputation:** VirusTotal.
 - **Deobfuscation:** CyberChef.
 
----
+
 
 ## 🟨 Security & Evidence Handling
 
@@ -48,7 +48,7 @@ To maintain a secure laboratory environment, all investigations adhere to strict
 - No local execution of attachments or scripts.
 - Raw `.eml` files and malicious PDFs are strictly quarantined locally and ignored via `.gitignore`.
 
----
+
 
 ## 🟨 Repository Structure
 
@@ -94,10 +94,9 @@ Current priorities include:
 
 * Integrating Sigma rules to detect malicious email forwarding and inbox rules.
 
----
 
-`> whoami`
-**Magda Dominguez** • Cyber & Data Specialist (CISMP | SC-900)
+## 🟩Connect with me
 
-`> connect`
-[LinkedIn](www.linkedin.com/in/magda-d-infosec) | [GitHub](https://github.com/magda-uk)
+[![Magda Dominguez LinkedIn](https://img.shields.io/badge/Magda_Dominguez-Connect_on_LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=000000)](https://www.linkedin.com/in/magda-d-infosec)
+
+I am actively seeking a Cyber Security / SOC / Security Design role where I can bring my structured troubleshooting, log analysis, and secure architecture skills to a dedicated security team.
