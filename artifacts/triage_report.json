@@ -1,0 +1,25 @@
+{
+    "magda.uk3, Claim Your Free Medicare Kit.eml": {
+        "metadata": {
+            "Subject": "magda.uk3, Claim Your Free Medicare Kit",
+            "From": "'NHS App-Rewards' <MptNSXgN@pOhaKxwEv.fr>",
+            "To": "magda.uk3@gmail.com",
+            "Date": "Mon, 28 Sep 2026 05:39:59 +0200",
+            "Return-Path": "<return26312@8qa3zei20lh9mtp26312.pa9u27hdrcg4iqt26312.04holtxfdgna26v26312.qsergtl9xpmo2ba.dentdevils-eastsussex.com>",
+            "Message-ID": "<6ab9e18f.69077212.2da9c4.37acSMTPIN_ADDED_MISSING@mx.google.com>"
+        },
+        "attachments": [],
+        "iocs": {
+            "ipv4": [],
+            "urls": [
+                ""
+            ],
+            "emails": [
+                "MptNSXgN@pOhaKxwEv.fr",
+                "6ab9e18f.69077212.2da9c4.37acSMTPIN_ADDED_MISSING@mx.google.com",
+                "magda.uk3@gmail.com",
+                "return26312@8qa3zei20lh9mtp26312.pa9u27hdrcg4iqt26312.04holtxfdgna26v26312.qsergtl9xpmo2ba.dentdevils-eastsussex.com"
+            ]
+        }
+    }
+}
