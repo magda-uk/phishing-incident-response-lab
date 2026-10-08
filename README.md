@@ -53,7 +53,6 @@ To maintain a secure laboratory environment, all investigations adhere to strict
 ## 🟨 Repository Structure
 
 ```text
-```text
 phishing-incident-response-lab/
 │
 ├── automation/                      # Custom Python triage tools
