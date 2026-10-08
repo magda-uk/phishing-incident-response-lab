@@ -13,15 +13,26 @@ The core of this repository consists of detailed, step-by-step incident reports 
 - 📧 **[Case: Santander / inFakt Invoice Campaign](./cases/santander-invoice-phishing/incident-report.md)**
   Full investigation of a mass-targeted credential harvesting campaign. Includes email header analysis, extraction of malicious routing hops, external domain IoCs (`limes-plus.com`), and safe static analysis of a fraudulent PDF invoice used for social engineering.
 
+- 🏥 **[Case: NHS / Medicare Credential Harvesting](./cases/nhs-medicare-phishing/incident-report.md)**
+  Detailed credential harvesting investigation targeting victims with a fake "Free Medicare Kit" lure. Analyzes advanced evasion techniques, including the abuse of legitimate Google Cloud Storage (`storage.googleapis.com`) for payload hosting, DGA return-path routing, and manual extraction of Base64-tracked URLs hidden within HTML attributes.
+
 - 🕵️ **[Case: Microsoft Support Spoofing](./cases/microsoft-support-spoofing/incident-report.md)**
   Deep-dive into a credential harvesting lure. Demonstrates the identification of forged senders via SPF, DKIM, and DMARC alignment failures, alongside return-path mismatches and IP reputation analysis.
 
 ---
 
+## 🐍 Python Automation Engine (Bulk Triage)
+
+To streamline the initial analysis phase and eliminate repetitive tasks, this laboratory features a custom-built Python automation toolkit designed to process raw evidence in bulk:
+
+- **`eml_parser.py`**: Safely parses raw `.eml` files, extracting core metadata, headers (Return-Path, Subject, From, Message-ID), and identifying attachments.
+- **`ioc_extractor.py`**: Utilizes advanced Regular Expressions (RegEx) to automatically scan text contents and harvest Indicators of Compromise (IoCs), including IPv4 addresses, URLs/domains, and email addresses.
+- **`triage.py`**: The orchestration script. It loops through the `raw_emails/` queue, runs the parser and extractor sequentially, and generates a structured master investigation report (`artifacts/triage_report.json`).
+
+---
 ## 🟨 Tools & Investigative Methodology
 
 These investigations utilise standard SOC analyst toolsets to extract Indicators of Compromise (IoCs) and validate threat intelligence:
-- **Python Automation:** Custom scripts to parse raw `.eml` files and auto-extract IP, URL, and email IoCs.
 - **Email Header Inspection:** Outlook / Thunderbird raw header extraction.
 - **DNS & Routing Validation:** MxToolbox (SPF, DKIM, DMARC, IP reputation).
 - **Artefact Detonation & Sandbox:** ANY.RUN, Hybrid Analysis, Joe Sandbox.
@@ -42,6 +53,7 @@ To maintain a secure laboratory environment, all investigations adhere to strict
 ## 🟨 Repository Structure
 
 ```text
+```text
 phishing-incident-response-lab/
 │
 ├── automation/                      # Custom Python triage tools
@@ -55,11 +67,14 @@ phishing-incident-response-lab/
 │   │   ├── santander-iocs.json
 │   │   └── images/
 │   │
+│   ├── nhs-medicare-phishing/       # NHS Credential Harvesting Case
+│   │   ├── incident-report.md
+│   │   └── images/
+│   │
 │   ├── microsoft-support-spoofing/
 │   │   ├── incident-report.md
 │   │   └── images/
 │   │
-│   ├── credential-harvesting-scenarios/  # (In Development)
 │   ├── mfa-fatigue-scenarios/            # (In Development)
 │   ├── quishing-campaigns/               # (In Development)
 │   └── bec-attempts/                     # (In Development)
