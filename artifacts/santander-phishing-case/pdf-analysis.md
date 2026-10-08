@@ -2,9 +2,11 @@
 **Analysed file:** `Invoice Actualizacion de seguridad de cuenta.pdf`
 
 ## 📸 PDF Preview (Safe GitHub View)
-![PDF preview](/artifacts/screenshots/pdf-preview-github.png)
+![PDF preview](./images/pdf-preview-github.png)
 
 ## 🧩 Overview
+
+
 This PDF is attached to a phishing email impersonating “SantanderEquipo, Inc.” and generated via inFakt.pl.  
 The invoice is titled **“Actualización de seguridad de cuenta”**, matching the email subject and reinforcing the social engineering theme of “account security update”.
 
