@@ -62,7 +62,7 @@ def parse_eml(file_path):
 if __name__ == "__main__":
     # To test this, create a simple text file named 'test.eml' in the same folder
     # or point the path to one of the emails in your 'headers/' folder
-    test_file = "headers/suspicious-email-real-case.eml"
+    test_file = "raw_emails/tu_correo_de_prueba.eml"
     
     # Uncomment the following line and create a test file to run it
     # parse_eml(test_file)
