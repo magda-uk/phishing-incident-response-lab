@@ -2,44 +2,40 @@
 
 This repository serves as a dedicated laboratory for analysing phishing campaigns, malicious artefacts, and end‑to‑end incident response workflows. It is designed to demonstrate practical, real‑world Blue Team skills focused on email security, threat actor infrastructure analysis, and safe triage methodologies.
 
-Phishing remains a primary initial access vector. This lab moves beyond theory, applying strict SOC evidence-handling procedures to investigate live, real-world malicious emails.
+Phishing remains a primary initial access vector, but it is often just the first step in a broader attack chain (incorporating Spoofing, Credential Harvesting, and MFA Fatigue). This lab moves beyond theory, applying strict SOC evidence-handling procedures to investigate live, real-world malicious emails.
 
 ---
 
-## 🟨 Featured Investigations
+## 🟨 Featured Incident Reports
 
-The core of this repository consists of detailed, step-by-step analyses of captured phishing attempts. 
+The core of this repository consists of detailed, step-by-step incident reports of captured phishing attempts, consolidated into single pane-of-glass investigations.
 
-* 📄 **[Artefact Triage: Suspicious Santander / inFakt Invoice](./artifacts/suspicious-invoice-santander/pdf-analysis.md)**
+- 📧 **[Case: Santander / inFakt Invoice Campaign](./cases/santander-invoice-phishing/incident-report.md)**
+  Full investigation of a mass-targeted credential harvesting campaign. Includes email header analysis, extraction of malicious routing hops, external domain IoCs (`limes-plus.com`), and safe static analysis of a fraudulent PDF invoice used for social engineering.
 
-  Safe static analysis of a malicious PDF masquerading as a financial document. Includes fraud indicator mapping, social engineering breakdown, and expected sandbox detonation behaviour.
-* 📧 **[Campaign Breakdown: Real Phishing Case (Santander/inFakt)](./headers/suspicious-email-real-case.md)**
-
-  Full investigation of the email body, extracting malicious routing hops, external domain IoCs (`limes-plus.com`), and identifying the mass-targeting footprint.
-* 🕵️ **[Email Header Analysis: Microsoft Support Spoofing](./headers/spoofing-analysis.md)**
-
-  Deep-dive into a credential harvesting campaign. Demonstrates the identification of forged senders via SPF, DKIM, and DMARC alignment failures, alongside return-path mismatches.
+- 🕵️ **[Case: Microsoft Support Spoofing](./cases/microsoft-support-spoofing/incident-report.md)**
+  Deep-dive into a credential harvesting lure. Demonstrates the identification of forged senders via SPF, DKIM, and DMARC alignment failures, alongside return-path mismatches and IP reputation analysis.
 
 ---
 
 ## 🟨 Tools & Investigative Methodology
 
 These investigations utilise standard SOC analyst toolsets to extract Indicators of Compromise (IoCs) and validate threat intelligence:
-
-* **Email Header Inspection:** Outlook / Thunderbird raw header extraction.
-* **DNS & Routing Validation:** MxToolbox (SPF, DKIM, DMARC, IP reputation).
-* **Artefact Detonation & Sandbox:** ANY.RUN, Hybrid Analysis, Joe Sandbox.
-* **File & URL Reputation:** VirusTotal.
-* **Deobfuscation:** CyberChef.
+- **Python Automation:** Custom scripts to parse raw `.eml` files and auto-extract IP, URL, and email IoCs.
+- **Email Header Inspection:** Outlook / Thunderbird raw header extraction.
+- **DNS & Routing Validation:** MxToolbox (SPF, DKIM, DMARC, IP reputation).
+- **Artefact Detonation & Sandbox:** ANY.RUN, Hybrid Analysis, Joe Sandbox.
+- **File & URL Reputation:** VirusTotal.
+- **Deobfuscation:** CyberChef.
 
 ---
 
 ## 🟨 Security & Evidence Handling
 
 To maintain a secure laboratory environment, all investigations adhere to strict incident response protocols:
-* All artefacts are handled exclusively within isolated environments or via **GitHub’s safe static preview**.
-* No local execution of attachments or scripts.
-* Evidence is preserved in structured, quarantined directories.
+- All artefacts are handled exclusively within isolated environments or via **GitHub’s safe static preview**.
+- No local execution of attachments or scripts.
+- Raw `.eml` files and malicious PDFs are strictly quarantined locally and ignored via `.gitignore`.
 
 ---
 
@@ -48,34 +44,46 @@ To maintain a secure laboratory environment, all investigations adhere to strict
 ```text
 phishing-incident-response-lab/
 │
-├── headers/                      # Email routing and spoofing investigations
-│   ├── suspicious-email-real-case.md
-│   ├── spoofing-analysis.md
-│   └── images/
+├── automation/                      # Custom Python triage tools
+│   ├── eml_parser.py
+│   ├── ioc_extractor.py
+│   └── triage.py
 │
-├── artifacts/                    # Safe static analysis of malicious files
-│   └── suspicious-invoice-santander/
-│       ├── Invoice Actualizacion de seguridad de cuenta.pdf
-│       ├── pdf-analysis.md
-│       └── images/
+├── cases/                           # Consolidated Incident Reports
+│   ├── santander-invoice-phishing/
+│   │   ├── incident-report.md
+│   │   ├── santander-iocs.json
+│   │   └── images/
+│   │
+│   ├── microsoft-support-spoofing/
+│   │   ├── incident-report.md
+│   │   └── images/
+│   │
+│   ├── credential-harvesting-scenarios/  # (In Development)
+│   ├── mfa-fatigue-scenarios/            # (In Development)
+│   ├── quishing-campaigns/               # (In Development)
+│   └── bec-attempts/                     # (In Development)
 │
-├── automation/                   # (In Development) Python triage tools
-│   ├── eml-parser.py
-│   └── ioc-extractor.py
-│
-└── case-studies/                 # (In Development) Campaign mapping
-    ├── credential-harvesting.md
-    └── mfa-fatigue-scenarios.md
+└── raw_emails/                      # (Local Quarantine) Live .eml files
 ```
----
 ## ♻️ Active Development Roadmap
+
 This laboratory is continuously updated with new artefacts and automated triage capabilities. 
 
 Current priorities include:
 
+* Developing Python automation scripts to parse raw .eml files and auto-extract IoCs (Completed & Testing).
+
+* Expanding incident reports to cover QR code phishing (Quishing) and Business Email Compromise (BEC) attempts.
+
+* Mapping Credential Harvesting campaigns to subsequent MFA Fatigue attacks.
+
 * Integrating Sigma rules to detect malicious email forwarding and inbox rules.
 
-* Developing Python automation scripts to parse raw .eml files and auto-extract IoCs.
-
-* Expanding cases to cover QR code phishing (Quishing) and Business Email Compromise (BEC) attempts.
 ---
+
+`> whoami`
+**Magda Dominguez** • Cyber & Data Specialist (CISMP | SC-900)
+
+`> connect`
+[LinkedIn](www.linkedin.com/in/magda-d-infosec) | [GitHub](https://github.com/magda-uk)
