@@ -1,0 +1,4 @@
+# Artefactos maliciosos y correos crudos
+*.eml
+*.pdf
+raw_emails/

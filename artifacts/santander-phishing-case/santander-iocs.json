@@ -1,0 +1,34 @@
+{
+
+    "suspicious-email-real-case.eml": {
+
+        "metadata": {
+
+            "Subject": "Invoice Actualizacion de seguridad de cuenta",
+
+            "From": "SantanderEquipo <uzytkownicy@infakt.pl>",
+
+            "Reply-To": "mouhisenm333@icloud.com"
+
+        },
+
+        "attachments": [
+
+            "Invoice Actualizacion de seguridad de cuenta.pdf"
+
+        ],
+
+        "iocs": {
+
+            "ipv4": ["185.199.108.153"],
+
+            "urls": ["https://limes-plus.com/"],
+
+            "emails": ["uzytkownicy@infakt.pl", "mouhisenm333@icloud.com"]
+
+        }
+
+    }
+
+} 
+
