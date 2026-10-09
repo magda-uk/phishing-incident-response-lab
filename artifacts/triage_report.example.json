@@ -1,0 +1,31 @@
+[{
+  "_comment": "Example report only. Real triage reports are excluded via .gitignore.",
+  "case_001.eml": {
+    "metadata": {
+      "Subject": "Example phishing email",
+      "From": "sender@example.com",
+      "To": "recipient@example.com"
+    }
+  }
+},
+
+
+{
+  "case_001.eml": {
+    "metadata": {
+      "Subject": "Example phishing email",
+      "From": "sender@example.com",
+      "To": "recipient@example.com",
+      "Date": "YYYY-MM-DD",
+      "Return-Path": "return@example.com",
+      "Message-ID": "<message-id-redacted>"
+    },
+    "attachments": [],
+    "iocs": {
+      "ipv4": [],
+      "urls": [],
+      "emails": ["sender@example.com"]
+    }
+  }
+}
+]
