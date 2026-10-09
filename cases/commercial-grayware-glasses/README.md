@@ -1,10 +1,11 @@
 # Incident Report / Triage Note: Commercial Grayware (Optics Marketing Campaign)
 
+
 <p align="left">
-  <img src="https://img.shields.io/badge/Status-Classified_as_Grayware-blue?style=flat-square">
-  <img src="https://img.shields.io/badge/Severity-Low-green?style=flat-square">
-  <img src="https://img.shields.io/badge/Classification-Email_Marketing-lightgrey?style=flat-square">
-  <img src="https://img.shields.io/badge/Platform-Mautic_Marketing-orange?style=flat-square">
+  <img src="https://img.shields.io/badge/Status-Classified_as_Grayware-00AEEF?style=flat-square&labelColor=black">
+  <img src="https://img.shields.io/badge/Severity-Low-28a745?style=flat-square&labelColor=black">
+  <img src="https://img.shields.io/badge/Classification-Email_Marketing-9b59ff?style=flat-square&labelColor=black">
+  <img src="https://img.shields.io/badge/Platform-Mautic_Marketing-A9A9A9?style=flat-square&labelColor=black">
 </p>
 
 ## 🟢 Executive Summary
