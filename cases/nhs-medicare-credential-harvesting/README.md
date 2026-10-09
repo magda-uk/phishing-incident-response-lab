@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/Severity-Medium-FF8C00?style=flat-square&labelColor=black">
   <img src="https://img.shields.io/badge/Vector-Email-9b59ff?style=flat-square&labelColor=black">
   <img src="https://img.shields.io/badge/MITRE_ATT%26CK-T1566.002_(Spearphishing_Link)-4B0082?style=flat-square&labelColor=black">
-  <img src="https://img.shields.io/badge/Platform-Google_Cloud_Storage-A9A9A9?style=flat-square&labelColor=black">
+  <img src="https://img.shields.io/badge/Platform-Google_Cloud_Storage-F3E8FF?style=flat-square&labelColor=black">
 </p>
 
 ## 🔺 Executive Summary
