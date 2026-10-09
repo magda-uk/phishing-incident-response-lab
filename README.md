@@ -1,23 +1,31 @@
 # 🔰 Phishing Incident Response Lab (Email Triage & Artefacts)
+<p align="left">
+  <img src="https://img.shields.io/badge/Operations-Blue_Team-0052CC?style=flat-square&labelColor=black">
+  <img src="https://img.shields.io/badge/Automation-Python_3-3776AB?style=flat-square&logo=python&logoColor=white&labelColor=black">
+  <img src="https://img.shields.io/badge/Status-Active_Development-28a745?style=flat-square&labelColor=black">
+  <img src="https://img.shields.io/badge/Documentation-Markdown-000000?style=flat-square&logo=markdown&logoColor=white">
+</p>
+
 
 This repository serves as a dedicated laboratory for analysing phishing campaigns, malicious artefacts, and end‑to‑end incident response workflows. It is designed to demonstrate practical, real‑world Blue Team skills focused on email security, threat actor infrastructure analysis, and safe triage methodologies.
 
 Phishing remains a primary initial access vector, but it is often just the first step in a broader attack chain (incorporating Spoofing, Credential Harvesting, and MFA Fatigue). This lab moves beyond theory, applying strict SOC evidence-handling procedures to investigate live, real-world malicious emails.
 
+## 🟨 Incident Triage Dashboard
 
+The core of this repository consists of detailed, step-by-step incident reports, categorized by threat severity to demonstrate a full spectrum of SOC analysis, from critical credential harvesting to benign commercial spam.
 
-## 🟨 Featured Incident Reports
+- 🔴 **[Case: Santander / inFakt Invoice Campaign](./cases/santander-invoice-phishing/incident-report.md)** <img src="https://img.shields.io/badge/Severity-High-critical?style=flat-square&labelColor=black" align="center">
 
-The core of this repository consists of detailed, step-by-step incident reports of captured phishing attempts, consolidated into single pane-of-glass investigations.
-
-- 📧 **[Case: Santander / inFakt Invoice Campaign](./cases/santander-invoice-phishing/README.md)**
   Full investigation of a mass-targeted credential harvesting campaign. Includes email header analysis, extraction of malicious routing hops, external domain IoCs (`limes-plus.com`), and safe static analysis of a fraudulent PDF invoice used for social engineering.
 
-- 🏥 **[Case: NHS / Medicare Credential Harvesting](/cases/nhs-medicare-credential-harvesting/README.md)**
+- 🟠 **[Case: NHS / Medicare Credential Harvesting](./cases/nhs-medicare-phishing/incident-report.md)** <img src="https://img.shields.io/badge/Severity-Medium-FF8C00?style=flat-square&labelColor=black" align="center">
+
   Detailed credential harvesting investigation targeting victims with a fake "Free Medicare Kit" lure. Analyzes advanced evasion techniques, including the abuse of legitimate Google Cloud Storage (`storage.googleapis.com`) for payload hosting, DGA return-path routing, and manual extraction of Base64-tracked URLs hidden within HTML attributes.
 
-- 🕵️ **[Case: Microsoft Support Spoofing](./cases/microsoft-support-spoofing/incident-report.md)**
-  Deep-dive into a credential harvesting lure. Demonstrates the identification of forged senders via SPF, DKIM, and DMARC alignment failures, alongside return-path mismatches and IP reputation analysis.
+- 🟢 **[Case: Optics Email Marketing (Grayware)](./cases/commercial-grayware-glasses/incident-report.md)** <img src="https://img.shields.io/badge/Severity-Low_/_Spam-28a745?style=flat-square&labelColor=black" align="center">
+
+  Routine triage of a bulk email campaign. Demonstrates the ability to quickly filter out false positives and non-malicious commercial grayware by identifying legitimate marketing platforms (Mautic) and clean routing infrastructure, preventing alert fatigue.
 
 
 
@@ -50,35 +58,32 @@ To maintain a secure laboratory environment, all investigations adhere to strict
 
 
 
+
+
 ## 🟨 Repository Structure
 
 ```text
 phishing-incident-response-lab/
 │
-├── automation/                      # Custom Python triage tools
+├── automation/                          # Custom Python triage tools
 │   ├── eml_parser.py
 │   ├── ioc_extractor.py
 │   └── triage.py
 │
-├── cases/                           # Consolidated Incident Reports
-│   ├── santander-invoice-phishing/
+├── cases/                               # Consolidated Incident Reports
+│   ├── santander-invoice-phishing/      # High Severity
 │   │   ├── incident-report.md
 │   │   ├── santander-iocs.json
 │   │   └── images/
 │   │
-│   ├── nhs-medicare-phishing/       # NHS Credential Harvesting Case
+│   ├── nhs-medicare-phishing/           # Medium Severity
 │   │   ├── incident-report.md
 │   │   └── images/
 │   │
-│   ├── microsoft-support-spoofing/
-│   │   ├── incident-report.md
-│   │   └── images/
-│   │
-│   ├── mfa-fatigue-scenarios/            # (In Development)
-│   ├── quishing-campaigns/               # (In Development)
-│   └── bec-attempts/                     # (In Development)
+│   └── commercial-grayware-glasses/     # Low Severity (Grayware)
+│       └── incident-report.md
 │
-└── raw_emails/                      # (Local Quarantine) Live .eml files
+└── raw_emails/                          # (Local Quarantine) Live .eml files
 ```
 ## ♻️ Active Development Roadmap
 
