@@ -5,3 +5,6 @@ raw_emails/
 # Python bytecode
 __pycache__/
 *.pyc
+# Generated triage reports and raw evidence
+artifacts/triage_report.json
+
