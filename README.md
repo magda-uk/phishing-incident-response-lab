@@ -15,15 +15,15 @@ Phishing remains a primary initial access vector, but it is often just the first
 
 The core of this repository consists of detailed, step-by-step incident reports, categorized by threat severity to demonstrate a full spectrum of SOC analysis, from critical credential harvesting to benign commercial spam.
 
-- 🔴 **[Case: Santander / inFakt Invoice Campaign](./cases/santander-invoice-phishing/incident-report.md)** <img src="https://img.shields.io/badge/Severity-High-critical?style=flat-square&labelColor=black" align="center">
+- 🔴 **[Case: Santander / inFakt Invoice Campaign](./cases/santander-invoice-phishing/README.md)** <img src="https://img.shields.io/badge/Severity-High-critical?style=flat-square&labelColor=black" align="center">
 
   Full investigation of a mass-targeted credential harvesting campaign. Includes email header analysis, extraction of malicious routing hops, external domain IoCs (`limes-plus.com`), and safe static analysis of a fraudulent PDF invoice used for social engineering.
 
-- 🟠 **[Case: NHS / Medicare Credential Harvesting](./cases/nhs-medicare-phishing/incident-report.md)** <img src="https://img.shields.io/badge/Severity-Medium-FF8C00?style=flat-square&labelColor=black" align="center">
+- 🟠 **[Case: NHS / Medicare Credential Harvesting](./cases/nhs-medicare-credential-harvesting/README.md)** <img src="https://img.shields.io/badge/Severity-Medium-FF8C00?style=flat-square&labelColor=black" align="center">
 
   Detailed credential harvesting investigation targeting victims with a fake "Free Medicare Kit" lure. Analyzes advanced evasion techniques, including the abuse of legitimate Google Cloud Storage (`storage.googleapis.com`) for payload hosting, DGA return-path routing, and manual extraction of Base64-tracked URLs hidden within HTML attributes.
 
-- 🟢 **[Case: Optics Email Marketing (Grayware)](./cases/commercial-grayware-glasses/incident-report.md)** <img src="https://img.shields.io/badge/Severity-Low_/_Spam-28a745?style=flat-square&labelColor=black" align="center">
+- 🟢 **[Case: Optics Email Marketing (Grayware)](./cases/commercial-grayware-glasses/README.md)** <img src="https://img.shields.io/badge/Severity-Low_/_Spam-28a745?style=flat-square&labelColor=black" align="center">
 
   Routine triage of a bulk email campaign. Demonstrates the ability to quickly filter out false positives and non-malicious commercial grayware by identifying legitimate marketing platforms (Mautic) and clean routing infrastructure, preventing alert fatigue.
 
@@ -104,4 +104,4 @@ Current priorities include:
 
 [![Magda Dominguez LinkedIn](https://img.shields.io/badge/Magda_Dominguez-Connect_on_LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=000000)](https://www.linkedin.com/in/magda-d-infosec)
 
-I am actively seeking a Cyber Security / SOC / Security Design role where I can bring my structured troubleshooting, log analysis, and secure architecture skills to a dedicated security team.
+I'm actively seeking a Cyber Security / SOC role where I can bring my structured troubleshooting, log analysis, and secure architecture skills to a dedicated security team.
