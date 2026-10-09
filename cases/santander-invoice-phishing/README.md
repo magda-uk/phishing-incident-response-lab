@@ -1,4 +1,11 @@
 # Incident Report: Santander Spoofed Security Update
+<p align="left">
+  <img src="https://img.shields.io/badge/Status-Investigated-00AEEF??style=flat-square&labelColor=black">
+  <img src="https://img.shields.io/badge/Severity-High-critical?style=flat-square&labelColor=black">
+  <img src="https://img.shields.io/badge/Vector-Email-9b59ff??style=flat-square&labelColor=black">
+  <img src="https://img.shields.io/badge/MITRE_ATT%26CK-T1566.001_(Phishing)-4B0082?style=flat-square&labelColor=black">
+  <img src="https://img.shields.io/badge/Artefact-Malicious_PDF-1a0066??style=flat-square&labelColor=black">
+</p>
 
 ## ▫️ Executive Summary
 This case involves a real-world phishing campaign impersonating Santander ("SantanderEquipo, Inc."). The attacker leveraged a legitimate Polish invoicing service (`infakt.pl`) to spoof the delivery mechanism and bypass basic spam filters. The primary objective is credential harvesting via a malicious external link, using a fabricated PDF invoice as a psychological trigger to create urgency.
@@ -44,3 +51,7 @@ The document mimics a Polish invoice generated via inFakt.pl but contains delibe
 1.  **Network Blocking:** Blacklist the root domain `limes-plus.com` on all firewalls and web proxies.
 2.  **Email Quarantine:** Implement a mail gateway rule to drop inbound traffic containing the Reply-To address `mouhisenm333@icloud.com`.
 3.  **Log Review:** Query SIEM/Proxy logs for any internal IP addresses that successfully connected to the malicious URL to identify potential compromises.
+
+## ▫️Let's connect
+
+[![Magda Dominguez LinkedIn](https://img.shields.io/badge/Magda_Dominguez-Connect_on_LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=000000)](https://www.linkedin.com/in/magda-d-infosec)

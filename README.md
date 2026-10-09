@@ -10,10 +10,10 @@ Phishing remains a primary initial access vector, but it is often just the first
 
 The core of this repository consists of detailed, step-by-step incident reports of captured phishing attempts, consolidated into single pane-of-glass investigations.
 
-- 📧 **[Case: Santander / inFakt Invoice Campaign](./cases/santander-invoice-phishing/incident-report.md)**
+- 📧 **[Case: Santander / inFakt Invoice Campaign](./cases/santander-invoice-phishing/README.md)**
   Full investigation of a mass-targeted credential harvesting campaign. Includes email header analysis, extraction of malicious routing hops, external domain IoCs (`limes-plus.com`), and safe static analysis of a fraudulent PDF invoice used for social engineering.
 
-- 🏥 **[Case: NHS / Medicare Credential Harvesting](./cases/nhs-medicare-phishing/incident-report.md)**
+- 🏥 **[Case: NHS / Medicare Credential Harvesting](/cases/nhs-medicare-credential-harvesting/README.md)**
   Detailed credential harvesting investigation targeting victims with a fake "Free Medicare Kit" lure. Analyzes advanced evasion techniques, including the abuse of legitimate Google Cloud Storage (`storage.googleapis.com`) for payload hosting, DGA return-path routing, and manual extraction of Base64-tracked URLs hidden within HTML attributes.
 
 - 🕵️ **[Case: Microsoft Support Spoofing](./cases/microsoft-support-spoofing/incident-report.md)**
