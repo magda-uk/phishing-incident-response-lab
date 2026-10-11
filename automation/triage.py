@@ -1,12 +1,16 @@
 import os
 import json
+from datetime import datetime
 from eml_parser import parse_eml
 from ioc_extractor import extract_iocs
 
 def main():
-    # Directorios del laboratorio
-    raw_emails_dir = "raw_emails/"
-    artifacts_dir = "artifacts/"
+    # 1. Configuración de Rutas (A prueba de errores de terminal)
+    # Obtiene la ruta absoluta de la carpeta raíz del proyecto (subiendo un nivel desde 'automation')
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
+    raw_emails_dir = os.path.join(base_dir, "raw_emails")
+    artifacts_dir = os.path.join(base_dir, "artifacts")
     
     # Crea la carpeta de artefactos si no existe
     if not os.path.exists(artifacts_dir):
@@ -14,7 +18,7 @@ def main():
         
     # Comprueba que la carpeta raw_emails exista
     if not os.path.exists(raw_emails_dir):
-        print(f"[-] Error: La carpeta '{raw_emails_dir}' no existe. Créala y mete tus .eml ahí.")
+        print(f"[-] Error: La carpeta '{raw_emails_dir}' no existe. Créala en la raíz del proyecto.")
         return
         
     # Busca todos los correos en la carpeta
@@ -33,25 +37,32 @@ def main():
         file_path = os.path.join(raw_emails_dir, file_name)
         print(f">>> Processing: {file_name}")
         
-        # 1. Parsear el correo
-        email_data = parse_eml(file_path)
-        
-        if email_data:
-            # Juntar todo el texto para analizarlo
-            full_text = str(email_data["headers"]) + email_data["body"]
+        # 2. Manejo de excepciones: Evita que el script colapse si un correo está corrupto
+        try:
+            # Parsear el correo
+            email_data = parse_eml(file_path)
             
-            # 2. Extraer los IoCs
-            extracted_iocs = extract_iocs(full_text)
+            if email_data:
+                # Juntar todo el texto para analizarlo
+                full_text = str(email_data["headers"]) + email_data["body"]
+                
+                # Extraer los IoCs
+                extracted_iocs = extract_iocs(full_text)
+                
+                # Guardar los resultados
+                master_report[file_name] = {
+                    "metadata": email_data["headers"],
+                    "attachments": email_data["attachments"],
+                    "iocs": extracted_iocs
+                }
+        except Exception as e:
+            print(f"[-] Omitiendo '{file_name}' debido a un error de lectura: {e}")
+            continue
             
-            # 3. Guardar los resultados
-            master_report[file_name] = {
-                "metadata": email_data["headers"],
-                "attachments": email_data["attachments"],
-                "iocs": extracted_iocs
-            }
-            
-    # 4. Exportar el JSON final
-    report_path = os.path.join(artifacts_dir, "triage_report.json")
+    # 3. Exportar el JSON final con Timestamp dinámico
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    report_filename = f"triage_report_{timestamp}.json"
+    report_path = os.path.join(artifacts_dir, report_filename)
     
     with open(report_path, "w", encoding="utf-8") as json_file:
         json.dump(master_report, json_file, indent=4, ensure_ascii=False)

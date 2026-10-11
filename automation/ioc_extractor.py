@@ -18,8 +18,8 @@ def extract_iocs(text_content):
     ipv4_pattern = r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b'
     
     # 2. Regex for full URLs (http / https)
-    # Catches links like https://limes-plus.com/ or variations with parameters
-    url_pattern = r'(?i)\b(?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’])'
+    # OPTIMIZADA: Detiene la captura al encontrar espacios, comillas o corchetes angulares (comunes en HTML)
+    url_pattern = r'(?i)https?://[^\s<>"\']+|www\.[^\s<>"\']+'
     
     # 3. Regex for Email Addresses
     # Crucial for catching malicious "Reply-To" addresses (e.g., mouhisenm333@icloud.com)
@@ -28,11 +28,8 @@ def extract_iocs(text_content):
     # Execute searches and remove duplicates using set()
     iocs["ipv4"] = list(set(re.findall(ipv4_pattern, text_content)))
     
-    # The complex URL regex may return tuples; extract only the first group (the full URL)
-    urls_raw = re.findall(url_pattern, text_content)
-    if urls_raw:
-        # Depending on the regex engine, it sometimes returns lists of tuples. We ensure we extract the string.
-        iocs["urls"] = list(set([match[0] if isinstance(match, tuple) else match for match in urls_raw]))
+    # Extracción de URLs simplificada y funcional
+    iocs["urls"] = list(set(re.findall(url_pattern, text_content)))
     
     iocs["emails"] = list(set(re.findall(email_pattern, text_content)))
 
@@ -61,6 +58,7 @@ if __name__ == "__main__":
     
     Estimado cliente,
     Por favor actualice su cuenta visitando https://limes-plus.com/login inmediatamente.
+    También encontramos este enlace malicioso oculto: https://storage.googleapis.com/usbeach26/USbeach26sales.html#?Z289MSZzMT0=
     Si tiene dudas contacte a support@santander-fake.com.
     IP de origen detectada en cabeceras: 185.199.108.153
     """
