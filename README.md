@@ -23,6 +23,10 @@ The core of this repository consists of detailed, step-by-step incident reports,
 
   Detailed credential harvesting investigation targeting victims with a fake "Free Medicare Kit" lure. Analyzes advanced evasion techniques, including the abuse of legitimate Google Cloud Storage (`storage.googleapis.com`) for payload hosting, DGA return-path routing, and manual extraction of Base64-tracked URLs hidden within HTML attributes.
 
+- 🟠 **[Case: TV Licensing / Amazon SES Evasion](./cases/TV%20Licensing%20Phishing%20via%20Amazon/README.md)** <img src="https://img.shields.io/badge/Severity-Medium-FF8C00?style=flat-square&labelColor=black" align="center">
+
+  Analysis of a credential harvesting campaign spoofing TV Licensing. Demonstrates advanced email filter bypass techniques through the hijacking of a high-reputation educational domain (`unal.edu.co`) combined with the abuse of legitimate Amazon SES routing infrastructure.
+
 - 🟢 **[Case: Optics Email Marketing (Grayware)](./cases/commercial-grayware-glasses/README.md)** <img src="https://img.shields.io/badge/Severity-Low_/_Spam-28a745?style=flat-square&labelColor=black" align="center">
 
   Routine triage of a bulk email campaign. Demonstrates the ability to quickly filter out false positives and non-malicious commercial grayware by identifying legitimate marketing platforms (Mautic) and clean routing infrastructure, preventing alert fatigue.
