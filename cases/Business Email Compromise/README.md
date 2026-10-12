@@ -19,8 +19,10 @@ Analysis of the Microsoft 365 Unified Audit Log (UAL) revealed the following seq
 | **2026-10-09 01:14:22** | `UserLoggedIn` | Successful sign-in to Azure Active Directory from an anomalous IP address (185.150.12.3). |
 | **2026-10-09 01:22:10** | `New-InboxRule` | Threat actor accessed Exchange Online and created a hidden inbox rule named `...` to intercept financial emails. |
 
- **📸 Evidence: UAL JSON Export**
+**📸 Evidence: UAL JSON Export**
+
 ![M365 Audit Log Evidence](./images/image1.png)
+
 > *Raw JSON extract from the Unified Audit Log confirming the anomalous login and the creation of the hidden forwarding rule.*
 ## ▫️ Indicators of Compromise (IOCs)
 
