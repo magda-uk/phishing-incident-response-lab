@@ -1,0 +1,42 @@
+[
+  {
+    "CreationTime": "2026-10-09T01:14:22Z",
+    "RecordType": 1,
+    "Operation": "UserLoggedIn",
+    "Workload": "AzureActiveDirectory",
+    "UserId": "mdxxx@empresa-victima.com",
+    "ClientIP": "185.150.12.3",
+    "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "ResultStatus": "Success"
+  },
+  {
+    "CreationTime": "2026-10-09T01:22:10Z",
+    "RecordType": 15,
+    "Operation": "New-InboxRule",
+    "Workload": "Exchange",
+    "UserId": "mdxxx@empresa-victima.com",
+    "ClientIP": "185.150.12.3",
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Value": "..."
+      },
+      {
+        "Name": "ForwardTo",
+        "Value": "pagos-proveedores@protonmail.com"
+      },
+      {
+        "Name": "MoveToFolder",
+        "Value": "RSS Feeds"
+      },
+      {
+        "Name": "SubjectContainsWords",
+        "Value": "factura, invoice, pago, urgente, swift, iban, transfer"
+      },
+      {
+        "Name": "MarkAsRead",
+        "Value": "True"
+      }
+    ]
+  }
+]
