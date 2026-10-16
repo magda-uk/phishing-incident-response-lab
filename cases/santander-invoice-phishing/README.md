@@ -72,6 +72,7 @@ Extracted artifacts identified during the initial triage for threat intelligence
 | **Domain** | `limes-plus.com` | Email Body | Root domain with no Santander affiliation | High |
 | **IP Address** | `172.67.213.19` | VirusTotal / DNS | Resolved IP of the malicious domain | High |
 | **Attachment Name**| `Invoice Actualizacion de seguridad de cuenta.pdf` | Attachment | Suspicious attachment acting as a social engineering lure | High |
+| **Attachment Hash**| `8dd0db13748181fd1399509406f21a03c25272245619bbe2b16a7feaa4245434` | Attachment | SHA256 hash of the PDF attachment | High |
 
 
 ## 🔹URL & Infrastructure Analysis
@@ -107,6 +108,11 @@ The email body instructs the user to update their account security by visiting a
 *   **Filename:** `Invoice Actualizacion de seguridad de cuenta.pdf`
 *   **Role:** Social Engineering Artefact
 
+- **Hash Calculation & Verification:**
+  The SHA-256 hash was generated locally to ensure safe investigation without executing the payload.
+
+  ![Terminal Hash Calculation](./images/pdf-hash-terminal.png)
+
 * **PDF Preview (Safe View):**
 
   ![PDF preview](./images/pdf-preview-github.png)
@@ -116,6 +122,8 @@ The email body instructs the user to update their account security by visiting a
   *   **Content:** The document mimics a Polish invoice generated via inFakt.pl but contains deliberately fabricated, nonsensical data (e.g., Seller: SpotifyRenew, Inc., Buyer: sbbdbs). 
   *   **VirusTotal Scan:** The PDF file was analyzed in VirusTotal using its SHA-256 hash. The results indicate that the file contains no active exploits or malware payloads (e.g., malicious macros or embedded scripts).
   *   **Conclusion:** The file's sole purpose is to reinforce the email's narrative, confusing the victim and increasing the likelihood of interaction with the phishing link.
+  
+      ![VirusTotal - PDF Clean Score](./images/virustotal-pdf-score.png)
 
 ## 🔹Impact Assessment
 
