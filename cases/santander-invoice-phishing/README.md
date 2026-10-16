@@ -53,7 +53,7 @@ Authentication mechanisms should always be reviewed when investigating phishing 
 | Initial Access | Phishing: Spearphishing Link | [T1566.002](https://attack.mitre.org/techniques/T1566/002/) | Email directs victims to an external phishing website |
 | Resource Development | Compromise Infrastructure | [T1584](https://attack.mitre.org/techniques/T1584/) | Legitimate website suspected of hosting phishing content |
 | Credential Access | Input Capture: Web Portal Capture | [T1056.003](https://attack.mitre.org/techniques/T1056/003/) | Expected credential harvesting through fake banking page |
----
+
 > MITRE ATT&CK mappings are based on observed attacker behaviour and available evidence collected during the investigation.
  
  **Primary Assessment**
@@ -136,9 +136,6 @@ If a user interacts with the phishing infrastructure and submits credentials, th
 - Follow-on phishing campaigns targeting compromised victims
 - Potential compromise of associated email accounts
 
- **Business Risk**
-
-  Given the impersonation of a major financial institution, the campaign presents a high risk of credential theft and financial loss for affected users.
 
 ## 🔹Defensive Recommendations
 1.  **Network Blocking:** Blacklist the root domain `limes-plus.com` on all firewalls and web proxies.
