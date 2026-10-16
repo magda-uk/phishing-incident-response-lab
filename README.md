@@ -19,6 +19,10 @@ The core of this repository consists of detailed, step-by-step incident reports,
 
   Full investigation of a mass-targeted credential harvesting campaign. Includes email header analysis, extraction of malicious routing hops, external domain IoCs (`limes-plus.com`), and safe static analysis of a fraudulent PDF invoice used for social engineering.
 
+- 🔴 **[Case: Mercadona Brand Impersonation & Advanced Evasion](./cases/mercadona-phishing-evasion/README.md)** <img src="https://img.shields.io/badge/Severity-High-critical?style=flat-square&labelColor=black" align="center">
+
+  Investigation of a persistent phishing campaign utilizing advanced Secure Email Gateway (SEG) evasion tactics. Demonstrates analysis of Bayesian Poisoning (hidden HTML text padding), full-body Base64 encoding, infrastructure rotation (Hetzner to OVH), and the abuse of Google Cloud Storage for payload hosting.
+
 - 🟠 **[Case: NHS / Medicare Credential Harvesting](./cases/nhs-medicare-credential-harvesting/README.md)** <img src="https://img.shields.io/badge/Severity-Medium-FF8C00?style=flat-square&labelColor=black" align="center">
 
   Detailed credential harvesting investigation targeting victims with a fake "Free Medicare Kit" lure. Analyzes advanced evasion techniques, including the abuse of legitimate Google Cloud Storage (`storage.googleapis.com`) for payload hosting, DGA return-path routing, and manual extraction of Base64-tracked URLs hidden within HTML attributes.
@@ -30,6 +34,10 @@ The core of this repository consists of detailed, step-by-step incident reports,
 - 🟢 **[Case: Optics Email Marketing (Grayware)](./cases/commercial-grayware-glasses/README.md)** <img src="https://img.shields.io/badge/Severity-Low_/_Spam-28a745?style=flat-square&labelColor=black" align="center">
 
   Routine triage of a bulk email campaign. Demonstrates the ability to quickly filter out false positives and non-malicious commercial grayware by identifying legitimate marketing platforms (Mautic) and clean routing infrastructure, preventing alert fatigue.
+
+- 🟢 **[Case: Advance-Fee Fraud (419 Scam) Campaign](./cases/advance-fee-fraud-419/README.md)** <img src="https://img.shields.io/badge/Severity-Low-28a745?style=flat-square&labelColor=black" align="center">
+
+  Triage of a mass-mailing social engineering campaign. Highlights threat actor infrastructure rotation, manual extraction of mismatched `Reply-To` headers, and demonstrates how legitimate Google infrastructure is abused to falsely pass SPF, DKIM, and DMARC authentication checks.
 
 
 
@@ -94,8 +102,7 @@ phishing-incident-response-lab/
 This laboratory is continuously updated with new artefacts and automated triage capabilities. 
 
 Current priorities include:
-
-* Developing Python automation scripts to parse raw .eml files and auto-extract IoCs (Completed & Testing).
+- ✅ **Python Automation Toolkit (`eml_parser.py`, `ioc_extractor.py`)**: Fully developed and tested. Safely parses raw `.eml` files, automatically decodes Base64/Quoted-Printable evasion payloads, and extracts IOCs in bulk.
 
 * Expanding incident reports to cover QR code phishing (Quishing) and Business Email Compromise (BEC) attempts.
 
