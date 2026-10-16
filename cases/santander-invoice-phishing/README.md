@@ -43,16 +43,20 @@ Authentication mechanisms should always be reviewed when investigating phishing 
 
     In this case, the threat actor abused a legitimate invoicing platform (`infakt.pl`) to distribute phishing content. This technique increases delivery success rates and reduces the likelihood of email gateway filtering.
 
+
+
 ## 🔹MITRE ATT&CK Mapping
 
-  | Tactic | Technique | ID | Evidence |
-  |----------|----------|----------|----------|
-  | Initial Access | Phishing: Spearphishing Attachment | T1566.001 | Malicious PDF attachment used as a lure |
-  | Initial Access | Phishing: Spearphishing Link | T1566.002 | User directed to an external credential-harvesting site |
-  | Resource Development | Compromise Infrastructure | T1584 | Legitimate website suspected of hosting phishing content |
-  | Credential Access | Credentials from Web Forms | T1056 | Expected credential collection through fake banking portal |
-
-* **Primary Assessment**
+| Tactic | Technique | ID | Evidence |
+|----------|----------|----------|----------|
+| Initial Access | Phishing: Spearphishing Attachment | [T1566.001](https://attack.mitre.org/techniques/T1566/001/) | PDF attachment used as a social engineering lure |
+| Initial Access | Phishing: Spearphishing Link | [T1566.002](https://attack.mitre.org/techniques/T1566/002/) | Email directs victims to an external phishing website |
+| Resource Development | Compromise Infrastructure | [T1584](https://attack.mitre.org/techniques/T1584/) | Legitimate website suspected of hosting phishing content |
+| Credential Access | Input Capture: Web Portal Capture | [T1056.003](https://attack.mitre.org/techniques/T1056/003/) | Expected credential harvesting through fake banking page |
+---
+> MITRE ATT&CK mappings are based on observed attacker behaviour and available evidence collected during the investigation.
+ 
+ **Primary Assessment**
 
   The phishing URL represents the primary attack vector. The PDF serves as a supporting social engineering artefact designed to increase trust and drive victim interaction with the malicious link.
 
