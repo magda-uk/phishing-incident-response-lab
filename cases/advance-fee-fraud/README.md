@@ -13,7 +13,7 @@ This case involves a persistent Advance-Fee Fraud campaign (often referred to as
 The campaign does not utilize malicious links or attachments; instead, it aims to establish a dialogue with the victim to eventually extort "administrative" fees or steal personally identifiable information (PII). The attacker utilizes a rotation of free, legitimate webmail infrastructure (Gmail) to bypass standard security filters and maintain persistence across multiple delivery waves.
 
 ## 🔹Campaign Evolution & Email Triage
-The threat actor is actively rotating burner accounts to evade detection. Two distinct waves have been intercepted targeting the same BCC address (`phibiebufe@gmail.com`).
+The threat actor is actively rotating burner accounts to evade detection. Two distinct waves have been intercepted targeting the same BCC address.
 
 **Wave 1 (Initial Contact):**
 *   **Subject:** Requires Urgent Attention(USD19.5M)
