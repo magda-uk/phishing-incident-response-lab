@@ -25,6 +25,37 @@ This case involves a real-world phishing campaign impersonating Santander ("Sant
   *   **Domain Mismatch:** The sender domain (`infakt.pl`) completely contradicts the display name (Santander).
   *   **Suspicious Reply-To:** Diverts replies to a personal iCloud email, a classic operational security failure by the threat actor.
 
+## 🔹Email Authentication Analysis
+
+Authentication mechanisms should always be reviewed when investigating phishing campaigns, as threat actors increasingly abuse legitimate email services to distribute malicious content.
+
+  | Control | Result | Assessment |
+  |----------|----------|----------|
+  | SPF | Pass* | Email originated from authorised infrastructure associated with `infakt.pl`. |
+  | DKIM | Pass* | Message integrity preserved through the legitimate sending platform. |
+  | DMARC | Pass* | Alignment checks likely passed due to the abuse of a trusted third-party service. |
+
+  > *Authentication results should be verified directly from the message headers.
+
+ * **Analyst Assessment**
+
+    Successful SPF, DKIM and DMARC validation does not automatically indicate a legitimate email.
+
+    In this case, the threat actor abused a legitimate invoicing platform (`infakt.pl`) to distribute phishing content. This technique increases delivery success rates and reduces the likelihood of email gateway filtering.
+
+## 🔹MITRE ATT&CK Mapping
+
+  | Tactic | Technique | ID | Evidence |
+  |----------|----------|----------|----------|
+  | Initial Access | Phishing: Spearphishing Attachment | T1566.001 | Malicious PDF attachment used as a lure |
+  | Initial Access | Phishing: Spearphishing Link | T1566.002 | User directed to an external credential-harvesting site |
+  | Resource Development | Compromise Infrastructure | T1584 | Legitimate website suspected of hosting phishing content |
+  | Credential Access | Credentials from Web Forms | T1056 | Expected credential collection through fake banking portal |
+
+* **Primary Assessment**
+
+  The phishing URL represents the primary attack vector. The PDF serves as a supporting social engineering artefact designed to increase trust and drive victim interaction with the malicious link.
+
 ## 🔹Indicators of Compromise (IOCs)
 Extracted artifacts identified during the initial triage for threat intelligence lookups and SIEM log searches.
 
@@ -37,9 +68,7 @@ Extracted artifacts identified during the initial triage for threat intelligence
 | **Domain** | `limes-plus.com` | Email Body | Root domain with no Santander affiliation | High |
 | **IP Address** | `172.67.213.19` | VirusTotal / DNS | Resolved IP of the malicious domain | High |
 | **Attachment Name**| `Invoice Actualizacion de seguridad de cuenta.pdf` | Attachment | Suspicious attachment acting as a social engineering lure | High |
-| **Attachment Hash**| `8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92`* | Attachment | SHA256 hash of the PDF attachment | High |
 
-*\* Note: The provided SHA-256 hash is a simulated placeholder. The original malicious artefact was permanently destroyed post-analysis in accordance with strict laboratory quarantine protocols.*
 
 ## 🔹URL & Infrastructure Analysis
 The email body instructs the user to update their account security by visiting an external link.
@@ -76,8 +105,7 @@ The email body instructs the user to update their account security by visiting a
 
 * **PDF Preview (Safe View):**
 
-
-![PDF preview](./images/pdf-preview-github.png)
+  ![PDF preview](./images/pdf-preview-github.png)
 
 
 * **Static Analysis & VirusTotal Findings:**
@@ -85,10 +113,55 @@ The email body instructs the user to update their account security by visiting a
   *   **VirusTotal Scan:** The PDF file was analyzed in VirusTotal using its SHA-256 hash. The results indicate that the file contains no active exploits or malware payloads (e.g., malicious macros or embedded scripts).
   *   **Conclusion:** The file's sole purpose is to reinforce the email's narrative, confusing the victim and increasing the likelihood of interaction with the phishing link.
 
+## 🔹Impact Assessment
+
+If a user interacts with the phishing infrastructure and submits credentials, the following risks may materialise:
+
+- Banking credential theft
+- Account takeover (ATO)
+- Financial fraud and unauthorised transactions
+- Exposure of personally identifiable information (PII)
+- Follow-on phishing campaigns targeting compromised victims
+- Potential compromise of associated email accounts
+
+ **Business Risk**
+
+  Given the impersonation of a major financial institution, the campaign presents a high risk of credential theft and financial loss for affected users.
+
 ## 🔹Defensive Recommendations
 1.  **Network Blocking:** Blacklist the root domain `limes-plus.com` on all firewalls and web proxies.
 2.  **Email Quarantine:** Implement a mail gateway rule to drop inbound traffic containing the Reply-To address `mouhisenm333@icloud.com`.
 3.  **Log Review:** Query SIEM/Proxy logs for any internal IP addresses that successfully connected to the malicious URL to identify potential compromises.
+
+## 🔹Attack Timeline
+
+```text
+Email Delivered
+       │
+       ▼
+Victim Opens Email
+       │
+       ▼
+Victim Opens PDF Attachment
+       │
+       ▼
+Social Engineering Trigger
+"Security Account Update"
+       │
+       ▼
+Victim Clicks External Link
+       │
+       ▼
+Redirect to Phishing Infrastructure
+(limes-plus.com)
+       │
+       ▼
+Credential Harvesting Page
+       │
+       ▼
+Potential Account Compromise
+```
+
 
 ## 🔹Let's connect
 
