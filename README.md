@@ -35,7 +35,7 @@ The core of this repository consists of detailed, step-by-step incident reports,
 
   Routine triage of a bulk email campaign. Demonstrates the ability to quickly filter out false positives and non-malicious commercial grayware by identifying legitimate marketing platforms (Mautic) and clean routing infrastructure, preventing alert fatigue.
 
-- 🟢 **[Case: Advance-Fee Fraud (419 Scam) Campaign](./cases/advance-fee-fraud-419/README.md)** <img src="https://img.shields.io/badge/Severity-Low-28a745?style=flat-square&labelColor=black" align="center">
+- 🟢 **[Case: Advance-Fee Fraud (419 Scam) Campaign](./cases/advance-fee-fraud/README.md)** <img src="https://img.shields.io/badge/Severity-Low-28a745?style=flat-square&labelColor=black" align="center">
 
   Triage of a mass-mailing social engineering campaign. Highlights threat actor infrastructure rotation, manual extraction of mismatched `Reply-To` headers, and demonstrates how legitimate Google infrastructure is abused to falsely pass SPF, DKIM, and DMARC authentication checks.
 
